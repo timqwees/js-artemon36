@@ -9,7 +9,7 @@
 
 <body>
     <script>
-        // Function: convertTemperature
+        // convertTemperature
         function convertTemperature(temp, direction) {
             if (direction === 'toC') {
                 const celsius = (temp - 32) * 5 / 9;
@@ -22,7 +22,7 @@
         }
         console.log(convertTemperature(100, 'toC'));
 
-        //Triangle
+        //Триугольник
         function triangle(a, b, c) {
             if (a + b <= c || a + c <= b || b + c <= a) {
                 console.log('треугольника не существует');
@@ -39,7 +39,7 @@
             console.log(`Соотношение = ${ratio}`);
         }
         console.log(triangle(3, 4, 5));
-        // Fizz - Buzz
+        // Fizz - Buzz (работа с усовиями проверок на кратность)    
         function fizzBuzz(limit) {
             for (let i = 0; i <= limit; i++) {
                 let output = '';
@@ -55,7 +55,7 @@
             }
         }
         console.log(fizzBuzz(100));
-        // Елка
+        // Елка путем повторования строк
         function generateChristmasTree(height) {
             let tree = '';
             for (let i = 1; i <= height; i++) {
@@ -74,24 +74,21 @@
         console.log(isDivisible(3, 3, 4));
         // Сэндвичи с сыром
         function countSandwiches(ingredients) {
-            const breadCount = ingredients.bread;
-            const cheeseCount = ingredients.cheese;
-            return Math.min(Math.floor(breadCount / 2), cheeseCount);
+            const breadCount = ingredients.bread; // точечная нотация
+            const cheeseCount = ingredients.cheese; // точечная нотация
+            return Math.min(Math.floor(breadCount / 2), cheeseCount); // Возвращаем минимальное количество сэндвичей
         }
         console.log(countSandwiches({ bread: 20, cheese: 10 }));
-        // Абсолютное значение
+        // Абсолютное значение (: boolean)
         function absValue(x) {
-            if (x < 0) {
-                return -x;
-            }
-            return x;
+            return x < 0 ? -x : x;
         }
-        console.log(absValue(-10));
+        console.log(absValue(-3));
         // Случайные числа
         function randomNumber(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-        console.log(randomNumber(1, 10));
+        console.log(randomNumber(0, 10));
         // Значения из массива
         function sampleArray(arr, count) {
             const result = [];
