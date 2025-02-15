@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Function: convertTemperature
+        function convertTemperature(temp, direction) {
+            if (direction === 'toC') {
+                const celsius = (temp - 32) * 5 / 9;
+                return `${celsius} C`;
+            } else if (direction === 'toF') {
+                const fahrenheit = temp * 9 / 5 + 32;
+                return `${fahrenheit} F`;
+            }
+            return 'Invalid переменная';
+        }
+        console.log(convertTemperature(100, 'toC'));
+
+        //Triangle
+        function triangle(a, b, c) {
+            if (a + b <= c || a + c <= b || b + c <= a) {
+                console.log('треугольника не существует');
+                return;
+            }
+            const s = (a + b + c) / 2;
+            const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+            const perimeter = a + b + c;
+            const ratio = perimeter / area;
+
+            console.log('треугольник существует');
+            console.log(`периметр = ${perimeter}`);
+            console.log(`Площадь = ${area}`);
+            console.log(`Соотношение = ${ratio}`);
+        }
+        console.log(triangle(3, 4, 5));
+        // Fizz - Buzz
+        function fizzBuzz(limit) {
+            for (let i = 0; i <= limit; i++) {
+                let output = '';
+                if (i % 3 === 0) {
+                    output += 'buzz';
+                }
+                if (i % 5 === 0) {
+                    output += 'fizz';
+                }
+                if (output === '') {
+                    output = i;
+                }
+            }
+        }
+        console.log(fizzBuzz(100));
+        // Елка
+        function generateChristmasTree(height) {
+            let tree = '';
+            for (let i = 1; i <= height; i++) {
+                const spaces = ' '.repeat(height - i);
+                const symbols = (i % 2 === 1 ? '*' : '#').repeat(2 * i - 1);
+                tree += spaces + symbols + '\n';
+            }
+            tree += ' '.repeat(height - 1) + '||';
+            return tree;
+        }
+        console.log(generateChristmasTree(5));
+        // Деление
+        function isDivisible(n, x, y) {
+            return n % x === 0 && n % y === 0;
+        }
+        console.log(isDivisible(3, 3, 4));
+        // Сэндвичи с сыром
+        function countSandwiches(ingredients) {
+            const breadCount = ingredients.bread;
+            const cheeseCount = ingredients.cheese;
+            return Math.min(Math.floor(breadCount / 2), cheeseCount);
+        }
+        console.log(countSandwiches({ bread: 20, cheese: 10 }));
+        // Абсолютное значение
+        function absValue(x) {
+            if (x < 0) {
+                return -x;
+            }
+            return x;
+        }
+        console.log(absValue(-10));
+        // Случайные числа
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(randomNumber(1, 10));
+        // Значения из массива
+        function sampleArray(arr, count) {
+            const result = [];
+            for (let i = 0; i < count; i++) {
+                const randomIndex = randomNumber(0, arr.length - 1);
+                result.push(arr[randomIndex]);
+            }
+            return result;
+        }
+        console.log(sampleArray([1, 2, 3, 4, 5], 3));
+        // Фильтрация массива
+        function myFilterArray(arr, filterFn) {
+            const result = [];
+            for (const item of arr) {
+                if (filterFn(item)) {
+                    result.push(item);
+                }
+            }
+            return result;
+        }
+        console.log(myFilterArray([1, 2, 3, 4, 5], (x) => x % 2 === 0));
+        // Равенство чисел с плавающей запятой
+        function toBeCloseTo(num1, num2) {
+            const epsilon = Number.EPSILON;
+            return Math.abs(num1 - num2) < epsilon;
+        }
+        console.log(toBeCloseTo(0.1 + 0.2, 0.3));
+    </script>
+</body>
+
+</html>
