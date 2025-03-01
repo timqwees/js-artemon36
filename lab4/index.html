@@ -1,23 +1,819 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-wf-domain="timqwees.technology" data-wf-page="645cebca0c6ed9d1ed21ecdb"
+    data-wf-site="637359c81e22b715cec245ad" lang="ru">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lab4 - timqwees</title>
-    <style>
-        span {
-            background-color: bisque;
-            padding: .25rem .5rem;
-            border-radius: 5px;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <title>TimQwees Technology - TestCode</title>
+    <meta content="Пройдите регистрацию, чтобы пере" name="description" />
+    <meta content="TimQwees Technology" property="og:title" />
+    <meta content="Пройдите регистрацию, чтобы перейти в онлайн чат политеха" property="og:description" />
+    <meta property="og:type" content="website" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>TimQwees - Нерсисян Артем Арменович</h1>
-    <p>Взгляните в <span>console log</span></p>
-    <script src="/main.js"></script>
+    <main>
+        <aside class="sidebar" data-sidebar>
+            <div class="sidebar-info">
+                <figure class="avatar-box">
+                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar" width="80">
+                </figure>
+
+                <div class="info-content">
+                    <h1 class="name" title="TimQwees">
+                        TimQwees - <br>Нерсисян Артем
+                    </h1>
+                    <p class="name" title="WORK">
+                        Лабораторная - №4
+                        </р2>
+                </div>
+
+                <button class="info-more-btn" data-sidebar-btn>
+                    <span>Список</span>
+                    <ion-icon name="chevron-down"></ion-icon>
+                </button>
+            </div>
+
+            <div class="sidebar-info-more">
+                <div class="separator"></div>
+
+                <ul class="contacts-list">
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Задача 1</p>
+
+                            <a class="contact-link active" data-nav-link>Resolve</a>
+                        </div>
+                    </li>
+
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Задача 2</p>
+
+                            <a class="contact-link" data-nav-link>random</a>
+                        </div>
+                    </li>
+                    <li class="contact-item">
+                        <div class="icon-box">
+                            <ion-icon name="book-outline"></ion-icon>
+                        </div>
+
+                        <div class="contact-info">
+                            <p class="contact-title">Задача 3</p>
+
+                            <a class="contact-link" data-nav-link>craft</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="main-content">
+
+            <article class="about active" data-page="resolve">
+                <header>
+                    <h2 class="h2 article-title">Resolve</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Описание задачи</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Главная задча</h4>
+                            <span>По умолчанию</span>
+                            <p class="timeline-text">В интерфейсе добавить кнопку, при нажатии на которую вызывается
+                                функция job. Эта функция возвращает объект promise. Promise должен разрешиться через 2
+                                секунды после вызова функции job и представляет строку “работа сделана” в данных, и эта
+                                же строка отображается в виде текста в интерфейсе под кнопкой.
+                            </p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Главная задача</h4>
+                            <span>Upgrade система</span>
+                            <p class="timeline-text">Было добавлен дизайн / анимация доступности и закрытия кнопки по и
+                                стечении времени CallBackTask, а также был добавлен индикатор уведомления о таймере.</p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="service">
+                    <h3 class="h3 service-title">Результат задачи:</h3>
+
+                    <div data-result-test1>
+                        <span>Уведомление:</span>
+                    </div>
+
+                    <ul class="service-list">
+
+                        <li class="service-item" onclick="periodicLogger(this, 5000)">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/ZqgqrqzG/icon-dev.png" alt="icon" width="40">
+                            </div>
+
+                            <div class="service-content-box">
+                                <h4 class="h4 service-item-title" data-test1>Активна</h4>
+                                <p class="service-item-text">Кнопкаактивации/Дисактивации с промежутком времени
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="testimonials">
+                    <h3 class="h3 testimonials-title">Руководители:</h3>
+
+                    <ul class="testimonials-list has-scrollbar">
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/JzBWVhW4/my-avatar.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Нерсисян Артем</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Основной разработчик данной платформы - студент московского политеха 1 курса</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/DwY0yHtx/avatar-2.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Ева</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставница московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>QALQA</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставник московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Артем</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставник московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Артем Юрьевич
+                                </h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Преподователь московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Владислав Верещагин</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Преподователь московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="modal-container " data-modal-container>
+                    <div class="overlay " data-overlay></div>
+
+                    <section class="testimonials-modal">
+                        <button class="modal-close-btn" data-modal-close-btn><ion-icon
+                                name="close-outline"></ion-icon></button>
+
+                        <div class="modal-img-wrapper">
+                            <figure class="modal-avatar-box">
+                                <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="Daniel Lewis" width="80"
+                                    data-modal-img>
+                            </figure>
+
+                            <img src="https://i.postimg.cc/mZ00RwX7/icon-quote.png" alt="quote icon">
+                        </div>
+
+                        <div class="modal-content">
+                            <h4 class="h3 modal-title" data-modal-title>Daniel Lewis</h4>
+                            <script> document.write(new Date().getDay(), '.', new Date().getMonth(), '.', new Date().getFullYear());</script>
+                            <div class="modal-text" data-modal-text>
+                                <p>null</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </article>
+
+            <article class="chat " data-page="random">
+                <header>
+                    <h2 class="h2 article-title">Resolve</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Описание задачи</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Главная задча</h4>
+                            <span>По умолчанию</span>
+                            <p class="timeline-text">В интерфейсе добавить кнопку, при нажатии на которую вызывается
+                                функция job. Эта функция возвращает объект promise. Promise должен разрешиться через 2
+                                секунды после вызова функции job и представляет строку “работа сделана” в данных, и эта
+                                же строка отображается в виде текста в интерфейсе под кнопкой.
+                            </p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Главная задача</h4>
+                            <span>Upgrade система</span>
+                            <p class="timeline-text">Была реалзована система сброса и проверки значения при вводе
+                                числа, а также уведомление о системе ввода и вывода.
+                            </p>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="service">
+                    <h3 class="h3 service-title">Результат задачи:</h3>
+
+                    <ul class="service-list">
+
+                        <li class="service-item">
+                            <div class="service-icon-box">
+                                <img src="https://i.postimg.cc/ZqgqrqzG/icon-dev.png" alt="icon" width="40">
+                            </div>
+
+                            <div class="service-content-box">
+                                <input type="text" id="test2" placeholder="Введите число" style="color: white;">
+                                <button onclick="button_test()"
+                                    style="outline: none;border:none;color:white">Отправить</button>
+                                <div id="result"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class=" testimonials">
+                    <h3 class="h3 testimonials-title">Руководители:</h3>
+
+                    <ul class="testimonials-list has-scrollbar">
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/JzBWVhW4/my-avatar.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Нерсисян Артем</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Основной разработчик данной платформы - студент московского политеха 1 курса</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/DwY0yHtx/avatar-2.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Ева</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставница московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>QALQA</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставник московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Артем</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставник московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Артем Юрьевич
+                                </h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Преподователь московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Владислав Верещагин</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Преподователь московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="modal-container " data-modal-container>
+                    <div class="overlay " data-overlay></div>
+
+                    <section class="testimonials-modal">
+                        <button class="modal-close-btn" data-modal-close-btn><ion-icon
+                                name="close-outline"></ion-icon></button>
+
+                        <div class="modal-img-wrapper">
+                            <figure class="modal-avatar-box">
+                                <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="Daniel Lewis" width="80"
+                                    data-modal-img>
+                            </figure>
+
+                            <img src="https://i.postimg.cc/mZ00RwX7/icon-quote.png" alt="quote icon">
+                        </div>
+
+                        <div class="modal-content">
+                            <h4 class="h3 modal-title" data-modal-title>Daniel Lewis</h4>
+                            <script> document.write(new Date().getDay(), '.', new Date().getMonth(), '.', new Date().getFullYear());</script>
+                            <div class="modal-text" data-modal-text>
+                                <p>null</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+            <article class="comment" data-page="craft">
+                <header>
+                    <h2 class="h2 article-title">Resolve</h2>
+                </header>
+
+                <section class="timeline">
+                    <div class="title-wrapper">
+                        <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
+
+                        <h3 class="h3">Описание задачи</h3>
+                    </div>
+
+                    <ol class="timeline-list">
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Главная задча</h4>
+                            <span>По умолчанию</span>
+                            <p class="timeline-text">В интерфейсе добавить кнопку, при нажатии на которую вызывается
+                                функция job. Эта функция возвращает объект promise. Promise должен разрешиться через 2
+                                секунды после вызова функции job и представляет строку “работа сделана” в данных, и эта
+                                же строка отображается в виде текста в интерфейсе под кнопкой.
+                            </p>
+                        </li>
+
+                        <li class="timeline-item">
+                            <h4 class="h4 timeline-item-title">Главная задача</h4>
+                            <span>Upgrade система</span>
+                            <p class="timeline-text">Была полностью переписана система крафтинга на аналог Mincraft -
+                                системы крафта с использованием ячеек для вставки предметов, а так же полноценная систем
+                                а выявления результата в ответной ячейке. Полоценный интерфеис игры и функционала. Какие
+                                крафты доступны?В спиок доступных крафтов входит:все элементы крафта
+                                игры.<br>-Чтобы снять предмет с ячейки нажмите правой кнопки мыши или тачпада
+                            </p>
+                        </li>
+                    </ol>
+                </section>
+                <section class="service">
+                    <h3 class="h3 service-title">Результат задачи:</h3>
+
+                    <div class="crafting-container">
+                        <span class="by"></span>
+                        <div class="crafting-content">
+                            <div class="crafting-grid">
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                                <div class="craft-slot"></div>
+                            </div>
+                            <div class="craft-arrow">→</div>
+                            <div class="result-slot"><span></span></div>
+                        </div>
+
+                        <div class="inventory-panel">
+                            <div class="inventory-item" data-type="wood">
+                                <img src="img/wood.png" alt="wood">
+                                <span class="count">10</span>
+                            </div>
+                            <div class="inventory-item" data-type="ironIngot">
+                                <img src="img/ironIngot.png" alt="iron">
+                                <span class="count">5</span>
+                            </div>
+                            <div class="inventory-item" data-type="tree">
+                                <img src="img/tree.png" alt="tree">
+                                <span class="count">5</span>
+                            </div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <!-- slot 2 -->
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <!-- slot 3 -->
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                            <div class="inventory-item" data-type="empty"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="testimonials">
+                    <h3 class="h3 testimonials-title">Руководители:</h3>
+
+                    <ul class="testimonials-list has-scrollbar">
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/JzBWVhW4/my-avatar.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Нерсисян Артем
+                                </h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Основной разработчик данной платформы - студент московского политеха 1
+                                        курса</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/DwY0yHtx/avatar-2.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Ева</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставница московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>QALQA</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставник московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Артем</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Наставник московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Артем Юрьевич
+                                </h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Преподователь московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="testimonials-item">
+                            <div class="content-card" data-testimonials-item>
+                                <figure class="testimonials-avatar-box">
+                                    <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="avatar"
+                                        data-testimonials-avatar width="60">
+                                </figure>
+
+                                <h4 class="h4 testimonials-item-title" data-testimonials-title>Владислав
+                                    Верещагин</h4>
+
+                                <div class="testimonials-text" data-testimonials-text>
+                                    <p>Преподователь московского политеха [веб-разработка/веб-технологии]</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="modal-container " data-modal-container>
+                    <div class="overlay " data-overlay></div>
+
+                    <section class="testimonials-modal">
+                        <button class="modal-close-btn" data-modal-close-btn><ion-icon
+                                name="close-outline"></ion-icon></button>
+
+                        <div class="modal-img-wrapper">
+                            <figure class="modal-avatar-box">
+                                <img src="https://i.postimg.cc/zGDHfn3G/avatar-1.png" alt="Daniel Lewis" width="80"
+                                    data-modal-img>
+                            </figure>
+
+                            <img src="https://i.postimg.cc/mZ00RwX7/icon-quote.png" alt="quote icon">
+                        </div>
+
+                        <div class="modal-content">
+                            <h4 class="h3 modal-title" data-modal-title>Daniel Lewis</h4>
+                            <script> document.write(new Date().getDay(), '.', new Date().getMonth(), '.', new Date().getFullYear());</script>
+                            <div class="modal-text" data-modal-text>
+                                <p>null</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+            <article class="comment" data-page="rand">
+                <section class="projects">
+                    <div class="filter-select-box">
+                        <button class="filter-select " data-select>
+                        </button>
+                    </div>
+                </section>
+                <!-- .... -->
+            </article>
+
+        </div>
+    </main>
+
+    <script defer async>
+        'use strict';
+
+        const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
+
+        const sidebar = document.querySelector("[data-sidebar]");
+        const sidebarBtn = document.querySelector("[data-sidebar-btn]");
+
+        sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); })
+
+        const testimonialsItem = document.querySelectorAll('[data-testimonials-item]');
+        const modalContainer = document.querySelector('[data-modal-container]');
+        const modalCloseBtn = document.querySelector('[data-modal-close-btn]');
+        const overlay = document.querySelector('[data-overlay]');
+
+        const modalImg = document.querySelector('[data-modal-img]');
+        const modalTitle = document.querySelector('[data-modal-title]');
+        const modalText = document.querySelector('[data-modal-text]');
+
+        const testimonialsModalFunc = function () {
+            modalContainer.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        for (let i = 0; i < testimonialsItem.length; i++) {
+            testimonialsItem[i].addEventListener('click', function () {
+                modalImg.src = this.querySelector('[data-testimonials-avatar]').src;
+                modalImg.alt = this.querySelector('[data-testimonials-avatar]').alt;
+                modalTitle.innerHTML = this.querySelector('[data-testimonials-title]').innerHTML;
+                modalText.innerHTML = this.querySelector('[data-testimonials-text]').innerHTML;
+
+                testimonialsModalFunc();
+            })
+        }
+
+        modalCloseBtn.addEventListener('click', testimonialsModalFunc);
+        overlay.addEventListener('click', testimonialsModalFunc);
+
+        const select = document.querySelector('[data-select]');
+        const selectItems = document.querySelectorAll('[data-select-item]');
+        const selectValue = document.querySelector('[data-select-value]');
+        const filterBtn = document.querySelectorAll('[data-filter-btn]');
+
+        select.addEventListener('click', function () { elementToggleFunc(this); });
+
+        for (let i = 0; i < selectItems.length; i++) {
+            selectItems[i].addEventListener('click', function () {
+
+                let selectedValue = this.innerText.toLowerCase();
+                selectValue.innerText = this.innerText;
+                elementToggleFunc(select);
+                filterFunc(selectedValue);
+
+            });
+        }
+
+        const filterItems = document.querySelectorAll('[data-filter-item]');
+
+        const filterFunc = function (selectedValue) {
+            for (let i = 0; i < filterItems.length; i++) {
+                if (selectedValue == "all") {
+                    filterItems[i].classList.add('active');
+                } else if (selectedValue == filterItems[i].dataset.category) {
+                    filterItems[i].classList.add('active');
+                } else {
+                    filterItems[i].classList.remove('active');
+                }
+            }
+        }
+
+        let lastClickedBtn = filterBtn[0];
+
+        for (let i = 0; i < filterBtn.length; i++) {
+
+            filterBtn[i].addEventListener('click', function () {
+
+                let selectedValue = this.innerText.toLowerCase();
+                selectValue.innerText = this.innerText;
+                filterFunc(selectedValue);
+
+                lastClickedBtn.classList.remove('active');
+                this.classList.add('active');
+                lastClickedBtn = this;
+
+            })
+        }
+        const form = document.querySelector('[data-form]');
+        const formInputs = document.querySelectorAll('[data-form-input]');
+        const formBtn = document.querySelector('[data-form-btn]');
+
+        for (let i = 0; i < formInputs.length; i++) {
+            formInputs[i].addEventListener('input', function () {
+                if (form.checkValidity()) {
+                    formBtn.removeAttribute('disabled');
+                } else {
+                    formBtn.setAttribute('disabled', '');
+                }
+            })
+        }
+
+        const navigationLinks = document.querySelectorAll('[data-nav-link]');
+        const pages = document.querySelectorAll('[data-page]');
+
+        for (let i = 0; i < navigationLinks.length; i++) {
+            navigationLinks[i].addEventListener('click', function () {
+
+                for (let i = 0; i < pages.length; i++) {
+                    if (this.innerHTML.toLowerCase() == pages[i].dataset.page) {
+                        pages[i].classList.add('active');
+                        navigationLinks[i].classList.add('active');
+                        window.scrollTo(0, 0);
+                    } else {
+                        pages[i].classList.remove('active');
+                        navigationLinks[i].classList.remove('active');
+                    }
+                }
+            });
+        }
+    </script>
+
+    <script defer async type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script defer async nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer async src="main.js"></script>
 </body>
 
 </html>

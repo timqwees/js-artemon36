@@ -1,99 +1,277 @@
-//### canclulator степени
-function calculateSquareRoot(number) {
-    if (number < 0) {
-        throw new Error("Число не может быть отрицательным");
-    }
-    return Math.sqrt(number);//степень
-}
-
-//запуск системы
-try {
-    console.log(calculateSquareRoot(9)); // 3 вызов функции на число 9
-    console.log(calculateSquareRoot(-4)); // проверка на наличие ошибки с отрицательным числом
-} catch (error) {// в случаи отказа системы
-    console.log(error.message);//выводим ошибка с системы
-}
-
-//### создание счетчика
-
 /**
- * @desctiption - создание счетчика
+ * @param {*} event 
+ * @param {*} interval 
+ * @returns 
  */
 
-function createCounter() {
-    let count = 0;//начала 0
-    return function () {// вызов функции
-        count++;
-        return count;
-    };
-}
-
-const counter1 = createCounter();//при вызове counter1 - вызовиться функция счетчика
-console.log(counter1()); // вызвов 1 раз фукнции +1 = 1
-console.log(counter1()); // вызов 2 раз функции +1 число = 2
-
-//#### функция интервала
-
-function periodicLogger(message, interval) {//сообщение, тики врмени 1000 => 1с
+function periodicLogger(event, interval) {
     let count = 0;
-    const timerId = setInterval(() => {// создание функциии интервала времени
-        console.log(message);
-        count++;
-    }, interval);//, interval тики (время) CallBackTask
+    const message = document.querySelector('[data-result-test1]');
+    const log_mess = setInterval(onMessage);
+    event.style.transition = '1s ease-out all';
 
-    return function stopLogger() {//возвраяем функции
-        clearInterval(timerId);//очищяем интервал повтора
-        console.log(`Логгер остановлен после ${count} интервалов.`);//сообщение
+    const timerId = setInterval(() => {
+        event.style.background = 'red';
+        event.innerText = 'недоступен';
+        count++;
+        isValid = true;
+    }, 1000);
+
+    setTimeout(stopLogger, interval);
+
+    function onMessage() {
+        message.className = 'active';
+        message.innerText = `Кнопка будет недосупна в течении: ${count} секунд`;
+    }
+
+    function stopLogger() {
+        clearInterval(timerId);
+        clearInterval(log_mess);
+        isValid = false;
+        message.classList.remove('active');
+        console.log(`Логгер остановлен после ${count} интервалов.`);
+        event.style.background = 'none';
+        event.innerHTML = `<div class="service-icon-box"><img src = "https://i.postimg.cc/ZqgqrqzG/icon-dev.png" alt = "icon" width = "40" ></div ><div class="service-content-box"><h4 class="h4 service-item-title" data-test1>Активна</h4><p class="service-item-text">Кнопкаактивации/Дисактивации с промежутком времени</p></div>`;
+    };
+
+    return timerId;
+}
+
+
+
+//### 
+
+function getData(probability, dataString) {
+    // Добавляем префикс к строке данных
+    const prefixedData = `Синтетические данные: ${dataString}`;
+
+    return function (value) {
+        // Проверяем, является ли аргумент числом и не NaN
+        if (typeof value === 'number' && !isNaN(value)) {
+            // Генерируем случайное число от 0 до 1 и сравниваем с вероятностью
+            if (Math.random() < probability) {
+                return console.log(prefixedData);
+            } else {
+                return null;
+            }
+        } else {
+            throw new Error("Аргумент должен быть числом и не NaN.");
+        }
     };
 }
 
-/**
- * @description функция остановки интервла
- */
+const dataFunction = getData(0.5, "123");
+const resultElement = document.getElementById('result');
 
-const stopLogger = periodicLogger("Сообщение", 1000);//сообщение, тикит
-setTimeout(stopLogger, 5000);//вызов функции остановка времени после 5с
+function button_test() {
+    const test2 = document.getElementById('test2').value;
+    const number = parseFloat(test2);
 
-//### получения пользователя
-function getUserData(userId, callback) {
-    if (typeof userId !== 'number') {
-        return callback("userId должен быть числом", null);
+    try {
+        const result = dataFunction(number);
+        resultElement.innerText = result || 'Данные не получены';
+    } catch (error) {
+        resultElement.innerText = error.message;
+    }
+};
+
+//new
+let selectedItem = null; // Переменная для хранения выбранного предмета
+
+// Функция для проверки результата крафта
+function validateCraftingResult(grid) {
+    const gridPattern = grid.map(slot => slot.dataset.type || null);
+
+    // Определение рецептов крафта
+    const recipes = {
+        woodenPickaxe: {
+            pattern: [
+                'tree', 'tree', 'tree', null, 'wood', null, null, 'wood', null
+            ],
+            result: 'woodenPickaxe'
+        },
+        ironPickaxe: {
+            pattern: [
+                'ironIngot', 'ironIngot', 'ironIngot', null, 'wood', null, null, 'wood', null
+            ],
+            result: 'ironPickaxe'
+        },
+        wood: {
+            pattern: [
+                'tree', 'tree', null, null, null, null, null, null, null
+            ],
+            result: 'wood'
+        },
+        wood2: {
+            pattern: [
+                null, 'tree', 'tree', null, null, null, null, null, null
+            ],
+            result: 'wood'
+        },
+        wood3: {
+            pattern: [
+                null, null, null, 'tree', 'tree', null, null, null, null
+            ],
+            result: 'wood'
+        },
+        wood4: {
+            pattern: [
+                null, null, null, null, 'tree', 'tree', null, null, null
+            ],
+            result: 'wood'
+        },
+
+        wood5: {
+            pattern: [
+                null, null, null, null, null, null, 'tree', 'tree', null
+            ],
+            result: 'wood'
+        },
+        wood6: {
+            pattern: [
+                null, null, null, null, null, null, null, 'tree', 'tree'
+            ],
+            result: 'wood'
+        },
+
+        wood7: {
+            pattern: [
+                'tree', null, null, 'tree', null, null, null, null, null
+            ],
+            result: 'wood'
+        },
+        wood8: {
+            pattern: [
+                null, 'tree', null, null, 'tree', null, null, null, null
+            ],
+            result: 'wood'
+        },
+        wood9: {
+            pattern: [
+                null, null, null, 'tree', null, null, 'tree', null, null
+            ],
+            result: 'wood'
+        },
+        wood10: {
+            pattern: [
+                null, null, null, null, 'tree', null, null, 'tree', null
+            ],
+            result: 'wood'
+        },
+        wood11: {
+            pattern: [
+                null, null, null, null, null, 'tree', null, null, 'tree'
+            ],
+            result: 'wood'
+        },
+        woodtree: {
+            pattern: [
+                'tree', 'tree', null, 'tree', 'wood', null, null, 'wood', null
+            ],
+            result: 'woodtree'
+        },
+        woodtree2: {
+            pattern: [
+                null, 'tree', 'tree', null, 'wood', 'tree', null, 'wood', null
+            ],
+            result: 'woodtree'
+        },
+        woodiron: {
+            pattern: [
+                'ironIngot', 'ironIngot', null, 'ironIngot', 'wood', null, null, 'wood', null
+            ],
+            result: 'woodiron'
+        },
+        woodiron2: {
+            pattern: [
+                null, 'ironIngot', 'ironIngot', null, 'wood', 'ironIngot', null, 'wood', null
+            ],
+            result: 'woodiron'
+        }
+    };
+
+    // Проверка на совпадение с любым рецептом
+    for (const recipe of Object.values(recipes)) {
+        if (JSON.stringify(gridPattern) === JSON.stringify(recipe.pattern)) {
+            return recipe.result;
+        }
     }
 
-    setTimeout(() => {
-        const userData = {//функция
-            id: userId,//пользовательский id
-            name: "Пользователь" + userId,
-            email: `timqwees${userId}@gmail.com`
-        };
-        callback(null, userData);
-    }, 1000);
+    return null;
 }
 
-// Пример вызова
-getUserData(123, (error, userData) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log(userData);
-    }
+// Добавить обработчик клика для инвентарных предметов
+document.querySelectorAll('.inventory-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (selectedItem) {
+            selectedItem.classList.remove('selected');
+        }
+        selectedItem = item;
+        selectedItem.classList.add('selected');
+    });
 });
 
-function sendEmail({ emailAddress, subject = "Без темы", message = "это timqwees" }, callback) {
-    if (!emailAddress.includes('@')) {//если нету @
-        return callback("Неверный адрес электронной почты", null);
-    }
+// Добавить обработчик клика для слотов крафта
+document.querySelectorAll('.craft-slot').forEach(slot => {
+    slot.addEventListener('click', (e) => {
+        if (selectedItem) {
+            const itemType = selectedItem.dataset.type;
+            const countSpan = selectedItem.querySelector('.count');
+            let count = parseInt(countSpan.textContent, 10);
 
-    setTimeout(() => {
-        callback(null, `Письмо отправлено на ${emailAddress}`);
-    }, 1000);
+            // Проверка наличия предмета
+            if (count > 0) {
+                // Добавление предмета в слот
+                slot.innerHTML = `<img src="img/${itemType}.png" alt="${itemType}">`;
+                slot.dataset.type = itemType;
+
+                // Уменьшение количества предмета в инвентаре
+                count--;
+                countSpan.textContent = count;
+
+                // Обновление результата крафта
+                updateCraftingResult();
+            }
+        }
+    });
+});
+
+// Обновление результата крафта
+function updateCraftingResult() {
+    const grid = Array.from(document.querySelectorAll('.craft-slot'));
+    const result = validateCraftingResult(grid);
+    const resultSlot = document.querySelector('.result-slot');
+
+    if (result) {
+        resultSlot.innerHTML = `<img src="img/${result}.png" alt="${result}">`;
+        resultSlot.dataset.type = result;
+    } else {
+        resultSlot.innerHTML = '';
+        resultSlot.removeAttribute('data-type');
+    }
 }
 
-// Пример вызова
-sendEmail({ emailAddress: "timqwees@gamil.com" }, (error, result) => {
-    if (error) {
-        console.log(error);
-    } else {
-        console.log(result);
-    }
+// Удалить предмет из ячейки крафта (правый клик)
+document.querySelectorAll('.craft-slot').forEach(slot => {
+    slot.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        const itemType = slot.dataset.type;
+        if (itemType) {
+            // Удаление предмета из слота
+            slot.innerHTML = '';
+            slot.removeAttribute('data-type');
+
+            // Возвращение предмета в инвентарь
+            const inventoryItem = Array.from(document.querySelectorAll('.inventory-item')).find(item => item.dataset.type === itemType);
+            if (inventoryItem) {
+                const countSpan = inventoryItem.querySelector('.count');
+                let count = parseInt(countSpan.textContent, 10);
+                count++; // Увеличение количества предмета
+                countSpan.textContent = count;
+            }
+
+            // Обновление результата крафта
+            updateCraftingResult();
+        }
+    });
 });
