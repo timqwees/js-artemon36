@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>лаб 3 - timqwees</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            text-decoration: none;
+            list-style: none;
+            transition: .1279s ease-in all;
+            /* опасная тема использовать по всей странице trasnsition, но в  типов страничек можно */
+        }
+
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(90deg, #fbccff, #7899ff);
+        }
+
+        h1 {
+            color: white
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .open,
+        .close,
+        .submit {
+            padding: .25rem .5rem;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+        }
+
+        .close {
+            outline: solid rgb(245, 127, 127) .5px;
+            background-color: rgb(245, 127, 127);
+        }
+
+        .open {
+            outline: solid rgb(127, 245, 237) .5px;
+            background-color: rgb(127, 245, 237);
+        }
+
+        .submit {
+            outline: solid rgb(206, 245, 127) .5px;
+            background-color: rgb(206, 245, 127);
+        }
+
+        dialog {
+            margin: auto;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            padding: 1rem;
+            place-items: center;
+            border: none;
+            box-shadow: -2px -2px 10px 1px rgb(232, 155, 155);
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: space-around;
+            align-content: center;
+        }
+
+
+
+        dialog>button {
+            padding-inline: 1rem;
+            border-radius: 5px;
+            background-color: #2d67e3;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            color: white;
+            font-size: 15px;
+            box-shadow: 20px -9px 0px 0px #2d67e3,
+                -20px -5px 0px 0px #2d67e3,
+                0px 7px 0px 0px #2d67e3,
+                -1px -19px 0px 0px #2d67e3;
+
+        }
+
+        dialog>button:active {
+            opacity: 0.5;
+        }
+
+        dialog::backdrop {
+            background-color: #3a3f65b3;
+            transition: .5s ease-in all;
+            -webkit-transition: .5s ease-in all;
+            -moz-transition: .5s ease-in all;
+            -ms-transition: .5s ease-in all;
+            -o-transition: .5s ease-in all;
+        }
+
+        .required::after {
+            content: '*';
+            color: red;
+            margin: .152299rem;
+        }
+
+        article {
+            padding-block: .5rem;
+        }
+
+        input {
+            border-radius: .5rem;
+            padding-inline: .5rem;
+            border: none;
+            outline: .5px solid black;
+        }
+
+        input:hover {
+            outline: 1px solid slateblue;
+        }
+
+        input:user-valid {
+            outline: 1px solid rgb(0, 255, 85);
+        }
+
+        input:user-invalid {
+            outline: solid 1px rgb(235, 88, 88);
+        }
+
+        button[type='submit'],
+        button[type='button'] {
+            outline: 1px solid black;
+            border: none;
+            border-radius: 5px;
+            padding-inline: .5rem;
+            cursor: pointer;
+        }
+
+        button[type='submit']:hover,
+        button[type='button']:hover {
+            opacity: .5;
+        }
+
+        .error,
+        .success {
+            color: rgb(0, 0, 0);
+            padding: .2rem .5rem;
+            border-radius: 5px;
+            font-size: 15px;
+            margin-top: .5rem;
+        }
+
+        .error {
+            box-shadow: inset 1px -2px 20px 7px rgb(255, 140, 140);
+        }
+
+        .success {
+            box-shadow: inset 1px -2px 20px 7px rgb(192, 255, 140);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Лабороторная работа №3 - Нерсисян Артем Арменович</h1>
+        <button id="registerBtn" class="open">Пройти регистрацию</button>
+    </header>
+
+    <dialog id="registrationDialog">
+        <form method="dialog" novalidate id="registrationForm">
+            <h2>Регистрация профиля</h2>
+            <article>
+                <label for="name" class="required">Имя</label>
+                <input type="text" id="name" required aria-describedby="nameError" aria-live="polite">
+                <div data-nameError></div>
+            </article>
+
+            <article>
+                <label for="email" class="required">Почта</label>
+                <input type="email" id="email" required aria-describedby="emailError" aria-live="polite">
+                <div data-emailError></div>
+            </article>
+
+            <article>
+                <label for="password" class="required">Пароль</label>
+                <input type="password" id="password" required minlength="6" aria-describedby="passwordError"
+                    aria-live="polite">
+                <button type="button" id="showPassword" class="password-toggle">👁</button>
+                <div data-passwordError class="error-message"></div>
+            </article>
+
+            <article>
+                <button id="val" class="submit">Отправить</button>
+                <button id="cancelBtn" class="close">Закрыть</button>
+            </article>
+
+        </form>
+    </dialog>
+    <script async defer src="main.js"></script>
+</body>
+
+</html>
