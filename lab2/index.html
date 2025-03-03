@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimQwees - Lab 3</title>
+    <style>
+        *,
+        *::after,
+        *::before {
+            outline: none;
+            transition: .5s ease-out all;
+            border: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        #cartIndicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+        }
+
+        #cart {
+            margin-top: 20px;
+        }
+
+        .cart-item {
+            margin: 5px 0;
+        }
+
+        .content {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .add {
+            padding: .5rem 1rem;
+            background-color: rgb(171, 125, 9);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .remove {
+            padding: .5rem 1rem;
+            background-color: rgb(224, 77, 37);
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .add:hover,
+        .remove:hover {
+            opacity: 0.5;
+        }
+
+        .count {
+            background-color: #19e458;
+            color: white;
+            font-weight: 700;
+            padding: .5rem 1rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .items {
+            background-color: #e49319b3;
+            color: white;
+            font-weight: 700;
+            padding: .25rem .5rem;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .active {
+            background-color: #19e458;
+            padding: .5rem;
+            border-radius: 5px;
+        }
+
+        .container {
+            margin: .5rem;
+            border-bottom: 1px solid lightgray;
+            padding-bottom: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Лабороторная работа №2 - TimQwees</h1>
+    </header>
+
+    <section class="container">
+        <div id="cart" class="cart">
+            <div id="cartItems"></div>
+            <div id="total"></div>
+        </div>
+    </section>
+
+    <section class="container">
+        <button id="likeButtonDefault" aria-label="Нравится" onclick="toggleLikeDefault(this)">👍</button>
+    </section>
+
+    <section class="container">
+        <button id="likeButton" aria-label="Нравится" onclick="toggleLike(this)">👍</button>
+        <button id="dislikeButton" aria-label="Не нравится" onclick="toggleDislike(this)">👎</button>
+    </section>
+
+    <section class="container">
+        <h3>Новая коллекция</h3>
+        <div class="content">
+            <div class="product">
+                <p>IPhone 15 Pro Max - 12,000₽</p>
+                <button class="add" onclick="addToCart('IPhone 15 Pro Max', 12000)">Добавить в корзину</button>
+            </div>
+            <div class="product">
+                <p>Зарядка - 220₽</p>
+                <button class="add" onclick="addToCart('Зарядка', 220)">Добавить в корзину</button>
+            </div>
+            <div class="product">
+                <p>AirPods - 2,900₽</p>
+                <button class="add" onclick="addToCart('AirPods', 2900)">Добавить в корзину</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Сортировка</h2>
+        <button onclick="sortItems('asc')">По возрастанию</button>
+        <button onclick="sortItems('desc')">По убыванию</button>
+        <button onclick="resetItems()">Сброс</button>
+        <ul id="numberList"></ul>
+    </section>
+
+    <section>
+        <div class="mouse" id="mouse_point"></div>
+        <div class="mouse" id="mouse_move"></div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
