@@ -397,6 +397,15 @@ article.active {
     gap: 16px;
 }
 
+i {
+    color: white;
+}
+
+.fl {
+    display: flex;
+    gap: 10px;
+}
+
 .contact-info {
     max-width: calc(100% - 46px);
     width: calc(100% - 46px);
@@ -405,6 +414,7 @@ article.active {
 .contact-info :is(.contact-link, time, address) {
     color: var(--white2);
     font-size: var(--fs7);
+    cursor: pointer;
 }
 
 .contact-info address {
