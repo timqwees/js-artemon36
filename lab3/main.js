@@ -41,6 +41,26 @@ document.getElementById('registrationForm').addEventListener('input', (event) =>
     isValid == true ? (document.getElementById('val').disabled = false, document.getElementById('val').style.opacity = '1') : (document.getElementById('val').disabled = true, document.getElementById('val').style.opacity = '.5');
 });
 
+/**
+ * @params {array} usersArray
+ */
+
+let usersArray = [];
+
+document.getElementById('registrationForm').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const userData = {};
+    for (const [key, value] of formData.entries()) {
+        userData[key] = value;
+    }
+    usersArray.push(userData);
+    console.log('Массив пользователей:', usersArray);
+    console.log('Добавлен новый пользователь:', userData);
+    event.target.reset();
+    document.getElementById('registrationDialog').close();
+});
+
 
 //### [OPEN/CLOSE] Password
 

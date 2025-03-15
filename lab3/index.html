@@ -186,26 +186,26 @@
             <h2>Регистрация профиля</h2>
             <article>
                 <label for="name" class="required">Имя</label>
-                <input type="text" id="name" required aria-describedby="nameError" aria-live="polite">
+                <input name="name" type=" text" id="name" required aria-describedby="nameError" aria-live="polite">
                 <div data-nameError></div>
             </article>
 
             <article>
                 <label for="email" class="required">Почта</label>
-                <input type="email" id="email" required aria-describedby="emailError" aria-live="polite">
+                <input name="email" type="email" id="email" required aria-describedby="emailError" aria-live="polite">
                 <div data-emailError></div>
             </article>
 
             <article>
                 <label for="password" class="required">Пароль</label>
-                <input type="password" id="password" required minlength="6" aria-describedby="passwordError"
-                    aria-live="polite">
+                <input name="password" type="password" id="password" required minlength="6"
+                    aria-describedby="passwordError" aria-live="polite">
                 <button type="button" id="showPassword" class="password-toggle">👁</button>
                 <div data-passwordError class="error-message"></div>
             </article>
 
             <article>
-                <button id="val" class="submit">Отправить</button>
+                <button id="val" class="submit" disabled>Отправить</button>
                 <button id="cancelBtn" class="close">Закрыть</button>
             </article>
 
