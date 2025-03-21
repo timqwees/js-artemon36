@@ -1,13 +1,33 @@
 //  тема
+/**
+ * Модуль управления темой приложения
+ * @module themeManager
+ * @type {HTMLElement} Кнопка переключения темы
+  */
 const themeToggle = document.getElementById('themeToggle');
+
+/** @type {HTMLElement} Корневой HTML элемент */
 const html = document.documentElement;
 
+/** 
+ * @type {string} Сохраненная тема из localStorage или значение по умолчанию 'light'
+ */
 const savedTheme = localStorage.getItem('theme') || 'light';
+
+// Устанавливаем начальную тему
 html.setAttribute('data-theme', savedTheme);
 themeToggle.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
 
+/**
+ * Обработчик клика по кнопке переключения темы
+ * @listens click
+ * @function
+ */
 themeToggle.addEventListener('click', () => {
+    /** @type {string} Текущая тема */
     const currentTheme = html.getAttribute('data-theme');
+
+    /** @type {string} Новая тема */
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
     html.setAttribute('data-theme', newTheme);
@@ -15,8 +35,33 @@ themeToggle.addEventListener('click', () => {
     themeToggle.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
 });
 
-//упрощенная версия
+// //базовый вариант
+// const themeToggle = document.getElementById('themeToggle');
+// const html = document.documentElement;
+// const savedTheme = localStorage.getItem('theme') || 'light';//получаем текущюю тему или устанавливаем светлую
+// html.setAttribute('data-theme', savedTheme);//устанавливаем тему
+// themeToggle.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
 
+// themeToggle.addEventListener('click', () => {
+//     const newTheme = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+//     html.setAttribute('data-theme', newTheme);
+//     localStorage.setItem('theme', newTheme);
+//     themeToggle.textContent = newTheme === 'light' ? 'Dark Mode' : 'Light Mode';
+// });
+
+// //еще базовее вариант
+// const themeToggle = document.getElementById('themeToggle');
+// themeToggle.textContent = 'Dark Mode';
+// document.documentElement.setAttribute('data-theme', 'light');
+// themeToggle.addEventListener('click', () => {
+//     if (document.documentElement.getAttribute('data-theme') === 'light') {
+//         document.documentElement.setAttribute('data-theme', 'dark');
+//         themeToggle.textContent = 'Light Mode';
+//     } else {
+//         document.documentElement.setAttribute('data-theme', 'light');
+//         themeToggle.textContent = 'Dark Mode';
+//     }
+// });
 
 // Toast
 class Toast {
@@ -175,11 +220,11 @@ demoContainer.style.gap = '10px';
 document.body.appendChild(demoContainer);
 
 const successButton = document.createElement('button');
-successButton.textContent = 'Show Success Toast';
+successButton.textContent = 'показать успех';
 successButton.onclick = () => showToast('Успешно', 'success');
 demoContainer.appendChild(successButton);
 
 const errorButton = document.createElement('button');
-errorButton.textContent = 'Show Error Toast';
+errorButton.textContent = 'показать ошибку';
 errorButton.onclick = () => showToast('Ошибка', 'error');
 demoContainer.appendChild(errorButton);
