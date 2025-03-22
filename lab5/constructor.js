@@ -166,7 +166,9 @@ function displayImages(images) {
 
         const img = document.createElement('img');
         img.src = image.url;
-        img.alt = image.alt || 'Изображение';
+        const item_alt = document.createElement('div');
+        item_alt.className = 'gallery-item-alt';
+        item_alt.textContent = image.alt || 'Изображение';
 
         const caption = document.createElement('div');
         caption.className = 'gallery-item-caption';
