@@ -1,4 +1,4 @@
-//  тема
+//################### тема ###################
 /**
  * Модуль управления темой приложения
  * @module themeManager
@@ -63,7 +63,7 @@ themeToggle.addEventListener('click', () => {
 //     }
 // });
 
-// Toast
+//################### Toast ###################
 class Toast {
     constructor(message, type = 'success') {
         this.message = message;
@@ -112,56 +112,43 @@ function showToast(message, type = 'success') {
     toast.show();
 }
 
-// галерея
+//################### галерея ###################
 const galleryContent = document.getElementById('galleryContent');
 const galleryLoader = document.getElementById('galleryLoader');
 const refreshButton = document.getElementById('refreshGallery');
 
 async function fetchImages(retryCount = 0) {
     try {
-        const response = await fetch('https://api.example.com/images');
-        if (!response.ok) throw new Error('Failed загрузкок фото');
+        const response = await fetch('http://194.67.93.117:80/images');
 
-        const images = await response.json();
-        displayImages(images);
+        // Проверяем статус ответа
+        if (response.status === 500) {
+            throw new Error('Ошибка сервера. Попробуйте позже.');
+        }
+
+        if (!response.ok) {
+            throw new Error('Не удалось загрузить изображения');
+        }
+
+        const data = await response.json();
+
+        // Проверяем, что получили массив изображений
+        if (!Array.isArray(data)) {
+            throw new Error('Некорректный формат данных');
+        }
+
+        displayImages(data);
     } catch (error) {
         if (retryCount < 3) {
+            // Показываем сообщение о повторной попытке
+            showToast(`Попытка ${retryCount + 1} из 3...`, 'error');
             setTimeout(() => fetchImages(retryCount + 1), 1000 * (retryCount + 1));
         } else {
-            showToast('Ошибка при загрузке изображений. Пожалуйста, попробуйте позже.', 'error');
+            showToast('Не удалось загрузить изображения. Пожалуйста, попробуйте позже.', 'error');
         }
     }
 }
-//для обьяснения Артему Юрьевичу / Владиславу Юрьевичу
-/////////////////////////////////////////////////////////////////////////
 
-//Пряямое подключение post запроса
-// await fetch('https://api.example.com/images', {
-//     method: 'POST',
-//     body: JSON.stringify({ username: 'dddd' }),
-//     headers: { 'Content-type': 'application/json; charset=UTF-8' },
-// })
-//     .then(response => {
-//         if (!responese.ok) {
-//             throw new error('error');
-//         }
-//         return response.json();
-//     })
-//     .then(data => { console.log(data) })
-//     .catch(error => { console.error('Error:', error) });
-
-//Асинхронное подключение
-// async function fetchData() {
-//     try {
-//         const response = await fetch('https://api.example.com/data');
-//         if (!response.ok) throw new Error('Failed загрузкок фото');
-//         const data = await response.json();//получене данных в формате json
-//         console.log(data);//вывод данных в консоль
-//     } catch (error) {
-//         console.error('Ошибка:', error);
-//     }
-// }
-/////////////////////////////////////////////////////////////////////////
 function displayImages(images) {
     galleryLoader.style.display = 'none';
 
@@ -179,11 +166,11 @@ function displayImages(images) {
 
         const img = document.createElement('img');
         img.src = image.url;
-        img.alt = image.caption;
+        img.alt = image.alt || 'Изображение';
 
         const caption = document.createElement('div');
         caption.className = 'gallery-item-caption';
-        caption.textContent = image.caption;
+        caption.textContent = image.description || 'Без описания';
 
         item.appendChild(img);
         item.appendChild(caption);
@@ -202,7 +189,7 @@ refreshButton.addEventListener('click', () => {
     });
 });
 
-// температура
+//################### температура ###################
 const temperatureForm = document.getElementById('temperatureForm');
 const submitButton = temperatureForm.querySelector('.submit-button');
 
@@ -210,14 +197,14 @@ temperatureForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const formData = {
-        roomNumber: document.getElementById('roomNumber').value,
-        temperature: parseFloat(document.getElementById('temperature').value)
+        class: document.getElementById('roomNumber').value,
+        temp: parseFloat(document.getElementById('temperature').value)//получение температуры (приобразуем в число)
     };
 
     submitButton.disabled = true;
 
     try {
-        const response = await fetch('https://api.example.com/temperature', {
+        const response = await fetch('http://194.67.93.117:80/temp', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -225,7 +212,7 @@ temperatureForm.addEventListener('submit', async (e) => {
             body: JSON.stringify(formData)
         });
 
-        const data = await response.json();
+        const data = await response.json();//получение данных в формате json
 
         if (!response.ok) throw new Error(data.message || 'ошибка');
 
