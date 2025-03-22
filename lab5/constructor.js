@@ -120,7 +120,7 @@ const refreshButton = document.getElementById('refreshGallery');
 async function fetchImages(retryCount = 0) {
     try {
         const response = await fetch('https://api.example.com/images');
-        if (!response.ok) throw new Error('Failed to fetch images');
+        if (!response.ok) throw new Error('Failed загрузкок фото');
 
         const images = await response.json();
         displayImages(images);
@@ -132,7 +132,36 @@ async function fetchImages(retryCount = 0) {
         }
     }
 }
+//для обьяснения Артему Юрьевичу / Владиславу Юрьевичу
+/////////////////////////////////////////////////////////////////////////
 
+//Пряямое подключение post запроса
+// await fetch('https://api.example.com/images', {
+//     method: 'POST',
+//     body: JSON.stringify({ username: 'dddd' }),
+//     headers: { 'Content-type': 'application/json; charset=UTF-8' },
+// })
+//     .then(response => {
+//         if (!responese.ok) {
+//             throw new error('error');
+//         }
+//         return response.json();
+//     })
+//     .then(data => { console.log(data) })
+//     .catch(error => { console.error('Error:', error) });
+
+//Асинхронное подключение
+// async function fetchData() {
+//     try {
+//         const response = await fetch('https://api.example.com/data');
+//         if (!response.ok) throw new Error('Failed загрузкок фото');
+//         const data = await response.json();//получене данных в формате json
+//         console.log(data);//вывод данных в консоль
+//     } catch (error) {
+//         console.error('Ошибка:', error);
+//     }
+// }
+/////////////////////////////////////////////////////////////////////////
 function displayImages(images) {
     galleryLoader.style.display = 'none';
 
