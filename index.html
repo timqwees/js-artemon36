@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Лабораторная работа №6</title>
+ <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+ <h1>Артемонов Александр - Лабораторная работа №6</h1>
+
+ <section id="version-manager">
+  <h2>Версионирование</h2>
+  <div class="input-group">
+   <input type="text" id="version-input" placeholder="Введите версию (например: 1.2.4)">
+   <button id="create-version">Создать версию</button>
+  </div>
+  <div id="version-display" class="display"></div>
+  <div id="version-controls" class="controls">
+   <button id="major-btn" disabled>Major</button>
+   <button id="minor-btn" disabled>Minor</button>
+   <button id="patch-btn" disabled>Patch</button>
+   <button id="rollback-btn" disabled>Rollback</button>
+  </div>
+ </section>
+
+ <section id="rectangle-square">
+  <h2>Прямоугольник и квадрат</h2>
+  <div class="input-group">
+   <input type="number" id="width-input" placeholder="Ширина">
+   <input type="number" id="height-input" placeholder="Высота">
+   <button id="calculate-btn">Рассчитать</button>
+  </div>
+  <div id="shape-result" class="display"></div>
+ </section>
+
+ <section id="temperature">
+  <h2>Температура</h2>
+  <div class="input-group">
+   <input type="number" id="temp1-input" placeholder="Температура 1">
+   <div class="radio-group">
+    <label><input type="radio" name="unit1" value="celsius" checked> Цельсий</label>
+    <label><input type="radio" name="unit1" value="kelvin"> Кельвин</label>
+    <label><input type="radio" name="unit1" value="fahrenheit"> Фаренгейт</label>
+   </div>
+  </div>
+  <div class="input-group">
+   <input type="number" id="temp2-input" placeholder="Температура 2">
+   <div class="radio-group">
+    <label><input type="radio" name="unit2" value="celsius" checked> Цельсий</label>
+    <label><input type="radio" name="unit2" value="kelvin"> Кельвин</label>
+    <label><input type="radio" name="unit2" value="fahrenheit"> Фаренгейт</label>
+   </div>
+  </div>
+  <div id="temp-result" class="display"></div>
+  <div class="controls">
+   <button id="add-temp">Сложить</button>
+   <button id="subtract-temp">Вычесть</button>
+  </div>
+ </section>
+
+ <section id="rock-paper-scissors">
+  <h2>Камень-ножницы-бумага</h2>
+  <div class="controls">
+   <button id="start-watching">Следить за играми</button>
+   <button id="stop-watching" disabled>Остановить</button>
+  </div>
+  <div id="rps-history" class="history"></div>
+  <div id="rps-stats" class="stats">
+   <div id="player1-stats"></div>
+   <div id="player2-stats"></div>
+  </div>
+ </section>
+
+ <script src="script.js"></script>
+</body>
+
+</html>
